@@ -1,0 +1,49 @@
+known has web src:
+	v8.3.5
+video of dwsim web running:
+	https://www.youtube.com/watch?v=jQRa3uSIXfc
+	
+binary install:
+	https://sourceforge.net/projects/dwsim/
+	
+running web server:
+	$ cd /usr/local/lib/dwsim/
+	$ sudo /usr/bin/mono TCPServer.exe --server --port 5000 --no-sandbox
+	
+	
+		DWSIM - Open Source Process Simulator
+		Network TCP/IP Solver Server
+		Copyright © 2007-2017 Daniel Medeiros
+		Version 7.5, Build 7 (08/01/2000 00:00)
+		Mono 6.12.0.200 (tarball Tue Jul 11 21:37:50 UTC 2023) / v4.0.30319
+
+		[12/26/2024 5:02:10 PM] Server IP Addresses:
+		192.168.0.110
+
+		[12/26/2024 5:02:10 PM] Server is running and listening to incoming data on port 5000...
+
+ping webserver:
+	$ telnet 192.168.0.110 5000
+	
+		Trying 192.168.0.110...
+		Connected to 192.168.0.110.
+		Escape character is '^]'.
+		Connection closed by foreign host.
+
+
+test response:
+	$ curl --http0.9 -X POST http://192.168.0.110:5000/simulation/open   -H "Content-Type: application/json"   -d '{"filepath": "/home/fathony/Documents/ODOO/DWSIM/borju.dwxmz"}' --output ./output.htm
+
+
+
+
+
+
+git repo, +etc
+	https://github.com/virajdesai0309/DWSim-Automation-Repo
+	
+[dwsim-users] Launching DWSIM Web App edition
+	https://sourceforge.net/p/dwsim/mailman/message/37658341/
+
+"start": "react-scripts --openssl-legacy-provider start",
+react-script: @5.0.1
